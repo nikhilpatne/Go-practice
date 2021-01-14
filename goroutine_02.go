@@ -13,35 +13,32 @@ func main() {
 	DbChannel := make(chan string)
 	RedisChannel := make(chan string)
 
-
-
 	go connectDB(DbChannel)
 	go connectRedis(RedisChannel)
 
-	DbClinet := <- DbChannel    // store the return values from channels to variable
-	RedisClinet := <- RedisChannel
+	DbClinet := <-DbChannel // store the return values from channels to variable
+	RedisClinet := <-RedisChannel
 
-	fmt.Println(DbClinet,RedisClinet)
+	fmt.Println(DbClinet, RedisClinet)
 
 	fmt.Println("Total time required ", time.Since(now))
 }
 
-func connectDB(dbch chan string) {
+func connectDB(ch chan string) {
 	time.Sleep(time.Second * 2)
 	// fmt.Println("DB Connected")
 
-	dbch <- "DB connected"
+	ch <- "DB connected"
 }
 
-func connectRedis(rdch chan string) {
+func connectRedis(ch chan string) {
 	time.Sleep(time.Second * 2)
 	// fmt.Println("Redis")
-	rdch <- "Redis conneted"
+	ch <- "Redis conneted"
 
 }
-
-
 
 // =======================================
 // writing both the functions as a go routine leads to terminate the main function, so no one will be execute.
+//  Basically main function should have to wait to complete routines defined
 //  to avoid this intrdoduce channels
