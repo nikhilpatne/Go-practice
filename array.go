@@ -40,4 +40,28 @@ func main() {
 		}
 		fmt.Println()
 	}
+
+	// MultiDimensional array
+	sample := [2][2][3]int{{{1, 2, 3}, {4, 5, 6}}, {{7, 8, 9}, {10, 11, 12}}}
+	fmt.Printf("Overall Dimension of the array: %d*%d*%d\n", len(sample), len(sample[0]), len(sample[0][0]))
+
+	for _, first := range sample {
+		for _, second := range first {
+			for _, value := range second {
+				fmt.Println(value)
+			}
+		}
+	}
+
+	//  Two Dimensional Slices.
+
+	twoDimensionalSlices := make([][]int, 2)
+
+	twoDimensionalSlices[0] = []int{1, 3, 4}
+	twoDimensionalSlices[1] = []int{3, 5, 2}
+
+	fmt.Println("SLice: ", twoDimensionalSlices)
+
+	fmt.Println("length: ", len(twoDimensionalSlices), "*", len(twoDimensionalSlices[0]))
+
 }

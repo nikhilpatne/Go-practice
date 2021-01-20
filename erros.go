@@ -38,3 +38,9 @@ func sum_of_elements(start int, end int) (int, error) {
 	}
 	return sum, nil
 }
+
+// type error interface {
+// 	Error() string
+// }
+
+//  error is the built is interface defined by go that i used  *error*
