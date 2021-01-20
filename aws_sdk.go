@@ -22,7 +22,7 @@ func main() {
 
 	sess, err := session.NewSession(&aws.Config{
 		Region:      aws.String("us-east-2"),
-		Credentials: credentials.NewStaticCredentials("AKIAYZVWFK5MZKOX7XE", "cpy66QWVAf7zhF4ZdHv0O9BfYKD2UK/w4mKwlBpV", ""),
+		Credentials: credentials.NewStaticCredentials("", "", ""),
 	})
 
 	// fmt.Println(sess)
@@ -52,8 +52,3 @@ func exitErrorf(msg string, args ...interface{}) {
 	fmt.Fprintf(os.Stderr, msg+"\n", args...)
 	os.Exit(1)
 }
-
-// sess, err := session.NewSession(&aws.Config{
-//     Region:      aws.String("us-west-2"),
-//     Credentials: credentials.NewStaticCredentials("AKID", "SECRET_KEY", "TOKEN"),
-// })

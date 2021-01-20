@@ -42,7 +42,7 @@ func main() {
 
 	sess, err := session.NewSession(&aws.Config{
 		Region:      aws.String("us-east-2"),
-		Credentials: credentials.NewStaticCredentials("AKIAYZVWFK5MZKOX7XER", "cpy66QWVAf7zhF4ZdHv0O9BfYKD2UK/w4mKwlBpV", ""),
+		Credentials: credentials.NewStaticCredentials("", "", ""),
 	})
 
 	svc := ec2.New(sess)
